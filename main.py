@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, create_engine
 from sqlalchemy.orm import relationship, declarative_base, sessionmaker, Session
-#from database import SessionLocal, engine  # Приклад підключення до БД
 import datetime
 
 app = FastAPI()
@@ -67,7 +66,6 @@ def get_db():
         db.close()
 
 # Маршрути для передплатників
-# Функція для створення підписника
 @app.post("/subscribers/")
 def create_subscriber(subscriber: SubscriberCreate, db: Session = Depends(get_db)):
     try:
